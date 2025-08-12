@@ -1,14 +1,18 @@
-# Core ML / DL
---index-url https://download.pytorch.org/whl/cu118
-torch>=2.0.0+cu118
-torchvision>=0.15.0+cu118
+# --- GPU PyTorch (CUDA 11.8) ---
+--extra-index-url https://download.pytorch.org/whl/cu118
+torch==2.3.1+cu118
+torchvision==0.16.1+cu118
 
-# остальные пакеты (уже CPU-agnostic)
+# --- ML / DL ---
 transformers>=4.35.0
-opencv-python>=4.8.0
-Pillow>=10.0.0
-numpy>=1.23.0
-tqdm>=4.65.0
 einops
 kornia
 timm
+
+# --- Image & Video ---
+opencv-python>=4.8.0
+Pillow>=10.0.0
+numpy>=1.23.0
+
+# --- Progress bar ---
+tqdm>=4.65.0
