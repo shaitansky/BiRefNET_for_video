@@ -21,10 +21,27 @@ BiRefNet Video CLI
 * Поддерживает запуск на CPU и GPU (флаг --no-gpu).
 * Не требует регистрации или API-ключей.
 
+Примеры
 [Rick Astley.gif](https://github.com/shaitansky/BiRefNET_for_video/blob/eaed053d9c0bfe0569ab1787921a6b70c5fd3fb3/Rick%20Astley.gif)
 ---
+**Инструкция по использованию черно-белой (luma) маски в Adobe Premiere Pro**
+Импорт
+• Импортируйте оригинальное видео
+• Импортируйте видео-маску (файл, полученный birefnet_cli.py, где фон чёрный, а объект белый)
+Создайте «Adjustment Layer**
+File → New → Adjustment Layer
+Разместите её выше оригинального клипа на таймлайне.
+Эффект «Track Matte Key»
+• Перетащите эффект Track Matte Key на оригинальный клип (не на Adjustment Layer).
+• В панели Effect Controls найдите Track Matte Key → Matte и выберите видеодорожку с вашей ч/б маской.
+• Установите Composite Using: Matte Luma.
+Готовый клип
+Premiere использует белую область как 100 % непрозрачность, чёрную как 0 %. Фон исчезнет, останется только объект.
+Добавление фона (опционально)
+Поместите любое изображение или видео под клип с Track Matte Key — оно появится вместо чёрной области.
+Готово: маска работает как встроенный альфа-канал без необходимости в ProRes 4444.
 
-Как начать
+**Как начать**
 
 1. Клонируйте репозиторий:
 
@@ -50,16 +67,7 @@ pip install -r requirements.txt
 
 ---
 
-Примеры
-
-Исходное видео:
-![Demo before](https://user-images.githubusercontent.com/YOUR_ID/demo_before.gif)
-Результат:
-![Demo after](https://user-images.githubusercontent.com/YOUR_ID/demo_after.gif)
-
----
-
-Системные требования
+**Системные требования**
 
 * Python: 3.8+
 * PyTorch: 2.0+ (CUDA 11.7+ опционально)
@@ -74,28 +82,23 @@ sudo apt update && sudo apt install ffmpeg
 
 ---
 
-Аргументы командной строки
+*Аргументы командной строки*
 
 * -i, --input PATH — путь к видеофайлу (по умолчанию открывается GUI).
 * --no-gpu — принудительно запустить на CPU.
 
 ---
 
-Структура проекта
+*Структура проекта*
 
 BiRefNet-Video-CLI/  
 ├── birefnet_cli.py       # основной скрипт  
-├── requirements.txt      # список зависимостей  
-├── LICENSE                # лицензия MIT  
+├── requirements.txt      # список зависимостей              
 ├── README.md              # этот файл  
-├── .gitignore  
-└── assets/  
-    ├── demo_before.gif     # примеры для README  
-    └── demo_after.gif
 
 ---
 
-Зависимости и авторы
+**Зависимости и авторы**
 
 * Библиотеки:
   * transformers (Hugging Face) — Apache-2.0
@@ -111,7 +114,7 @@ BiRefNet-Video-CLI/
 
 ---
 
-Часто задаваемые вопросы
+*Часто задаваемые вопросы*
 
 Q: Сколько VRAM нужно для работы на GPU?
 ≈ 2 ГБ для видео 1024×1024.
@@ -130,8 +133,8 @@ white_bg = np.full_like(frame, 255, dtype=np.float32)
 
 Лицензия: MIT © 2025 SHaitansky. Подробности в файле LICENSE.
 
-Благодарности:
+*Благодарности:*
 
-* ZhengPeng7 за архитектуру BiRefNet.
+* ZhengPeng7 за архитектуру BiRefNet. [https://github.com/ZhengPeng7?ysclid=me8e12hex86456620]
 * Hugging Face за удобную экосистему transformers.
 * Сообщества PyTorch, OpenCV и FFmpeg за их инструменты.
