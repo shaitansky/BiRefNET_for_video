@@ -21,6 +21,7 @@ BiRefNet Video CLI
 * Поддерживает запуск на CPU и GPU (флаг --no-gpu).
 * Не требует регистрации или API-ключей.
 
+Rick Astley.gif
 ---
 
 Как начать
