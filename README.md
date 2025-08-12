@@ -27,7 +27,7 @@ BiRefNet Video CLI
 
 1. Клонируйте репозиторий:
 
-git clone https://github.com/YOUR_USERNAME/BiRefNet-Video-CLI.git  
+git clone [https://github.com/YOUR_USERNAME/BiRefNet-Video-CLI.git]
 cd BiRefNet-Video-CLI  
 2. Создайте виртуальное окружение (рекомендуется):
 
