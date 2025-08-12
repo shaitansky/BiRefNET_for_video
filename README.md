@@ -98,9 +98,13 @@ sudo apt update && sudo apt install ffmpeg
 *Структура проекта*
 
 BiRefNet-Video-CLI/  
-├── birefnet_cli.py       # основной скрипт  
-├── requirements.txt      # список зависимостей              
-├── README.md              # этот файл  
+├── README.md 
+├── RUN.bat - запуск и выбор
+├── Rick Astley.gif - пример
+├── SETUP.bat - установка зависимостей (обязательно запуск от администратора)
+├── birefnet_cli_LUMA.py - версия LUMA
+├── birefnet_cli_PRORES.py - версия PRORES
+├── requirements.txt - зависимости
 
 ---
 
