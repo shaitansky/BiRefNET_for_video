@@ -4,6 +4,8 @@ BiRefNet Video CLI
 
 Этот инструмент позволяет легко удалить фон с видео без необходимости использования API или токенов. Он работает оффлайн и поддерживает улучшенный антиалиасинг для устранения «лесенок» на краях.
 
+**2 версии: LUMA создает черно-белое видео (файлы легче) и PRORES цветное видео (весят много)**
+
 ![Python](https://img.shields.io/badge/python-3.8+-blue.svg)
 ![OS](https://img.shields.io/badge/platform-Windows%7CLinux%7CmacOS-lightgrey.svg)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
@@ -25,7 +27,7 @@ BiRefNet Video CLI
 [Rick Astley.gif](https://github.com/shaitansky/BiRefNET_for_video/blob/eaed053d9c0bfe0569ab1787921a6b70c5fd3fb3/Rick%20Astley.gif)
 ---
 **Инструкция по использованию черно-белой (luma) маски в Adobe Premiere Pro**
-* Импорт
+
 * Импортируйте оригинальное видео
 * Импортируйте видео-маску (файл, полученный birefnet_cli.py, где фон чёрный, а объект белый)
 * Создайте «Adjustment Layer**
