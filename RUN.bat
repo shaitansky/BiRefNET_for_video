@@ -14,14 +14,12 @@ echo ================================
 set /p choice="Enter number and press Enter: "
 
 if "%choice%"=="1" (
-    echo Running birefnet_cli_LUMA.py...
     python birefnet_cli_LUMA.py
     pause
     goto menu
 )
 
 if "%choice%"=="2" (
-    echo Running birefnet_cli_PRORES.py...
     python birefnet_cli_PRORES.py
     pause
     goto menu
