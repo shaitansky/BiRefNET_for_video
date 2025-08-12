@@ -10,3 +10,7 @@ numpy>=1.23.0
 
 # Progress bar
 tqdm>=4.65.0
+
+einops
+kornia
+timm
