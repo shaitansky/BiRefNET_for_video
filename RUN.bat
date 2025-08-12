@@ -1,27 +1,27 @@
 @echo off
-chcp 65001 >nul
+chcp 1251 >nul
 title BiRefNet Launcher
 
 :menu
 cls
 echo ================================
-echo   Выберите скрипт для запуска
+echo   Choose script to run
 echo ================================
 echo  1  -  birefnet_cli_LUMA.py
 echo  2  -  birefnet_cli_PRORES.py
-echo  0  -  Выход
+echo  0  -  Exit
 echo ================================
-set /p choice="Введите цифру и нажмите Enter: "
+set /p choice="Enter number and press Enter: "
 
 if "%choice%"=="1" (
-    echo Запуск birefnet_cli_LUMA.py...
+    echo Running birefnet_cli_LUMA.py...
     python birefnet_cli_LUMA.py
     pause
     goto menu
 )
 
 if "%choice%"=="2" (
-    echo Запуск birefnet_cli_PRORES.py...
+    echo Running birefnet_cli_PRORES.py...
     python birefnet_cli_PRORES.py
     pause
     goto menu
@@ -29,6 +29,6 @@ if "%choice%"=="2" (
 
 if "%choice%"=="0" exit
 
-echo Неверный выбор, попробуйте ещё раз.
+echo Invalid choice, try again.
 timeout /t 2 >nul
 goto menu
