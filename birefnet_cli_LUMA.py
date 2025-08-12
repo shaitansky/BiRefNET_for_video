@@ -189,7 +189,7 @@ class VideoProcessor:
         pred = cv2.GaussianBlur(pred, (3, 3), 0.5)
         return np.clip(pred, 0, 1)
 
-    def process_video(self, input_path: Path, output_suffix: str = "_birefnet_processed"):
+    def process_video(self, input_path: Path, output_suffix: str = "_LUMA"):
         """Полный цикл обработки с улучшенным антиалиасингом."""
         output_path = input_path.parent / f"{input_path.stem}{output_suffix}.mp4"
 
@@ -326,3 +326,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
