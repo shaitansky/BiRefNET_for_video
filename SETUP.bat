@@ -1,37 +1,47 @@
 @echo off
-:: BiRefNet-CLI – GPU/CPU auto-setup
-cd /d "%~dp0"
+:: ============================================================
+::  BiRefNet Universal Setup
+::  Устанавливает зависимости для обоих скриптов:
+::  birefnet_cli_LUMA.py   и   birefnet_cli_PRORES.py
+:: ============================================================
 
-:: ---------- Проверка/установка Python ----------
-python -version >nul 2>&1
+:: Переключаем кодовую страницу на русскую без проблем с UTF-8
+chcp 1251 >nul
+
+title BiRefNet Setup
+
+:: Определяем путь к текущей папке
+setlocal enabledelayedexpansion
+set "DIR=%~dp0"
+
+echo ==========================================
+echo      BiRefNet Setup
+echo ==========================================
+echo Устанавливаются зависимости из requirements.txt...
+echo.
+
+:: Проверяем наличие Python
+where python >nul 2>nul
 if errorlevel 1 (
-    powershell -NoP -Command "Invoke-WebRequest https://www.python.org/ftp/python/3.11.8/python-3.11.8-amd64.exe -OutFile %TEMP%\py.exe"
-    %TEMP%\py.exe /quiet InstallAllUsers=1 PrependPath=1
+    echo [ОШИБКА] Python не найден в PATH.
+    echo Установите Python 3.8+ и добавьте его в переменные среды.
+    pause
+    exit /b 1
 )
 
-:: ---------- Проверка/установка FFmpeg ----------
-ffmpeg -version >nul 2>&1
-if errorlevel 1 (
-    powershell -NoP -Command "Invoke-WebRequest https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-essentials.zip -OutFile %TEMP%\ff.zip"
-    powershell -NoP -Command "Expand-Archive -Force %TEMP%\ff.zip C:\"
-    ren "C:\ffmpeg-*" "C:\FFmpeg" >nul 2>&1
-    setx /M PATH "%PATH%;C:\FFmpeg\bin"
-)
+:: Обновляем pip
+echo [1/3] Обновление pip...
+python -m pip install --upgrade pip
 
-:: ---------- Виртуальное окружение ----------
-if not exist "venv\Scripts\activate.bat" python -m venv venv
-call venv\Scripts\activate.bat
-python -m pip install --upgrade pip >nul
+:: Устанавливаем зависимости
+echo [2/3] Установка пакетов из requirements.txt...
+python -m pip install -r "%DIR%requirements.txt"
 
-:: ---------- Авто-выбор PyTorch ----------
-:: Проверяем CUDA-драйвер через nvidia-smi
-nvidia-smi >nul 2>&1
-if not errorlevel 1 (
-    pip install torch torchvision --index-url https://download.pytorch.org/whl/cu118
-) else (
-    pip install torch torchvision
-)
-
-pip install -r requirements.txt
-echo ===== DONE =====
+:: Сообщение об успешном завершении
+echo.
+echo ==========================================
+echo      Готово! Все зависимости установлены.
+echo ==========================================
+echo Теперь запустите RUN.bat для выбора скрипта.
+echo.
 pause
