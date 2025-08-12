@@ -10,9 +10,13 @@ kornia
 timm
 
 # --- Image & Video ---
-opencv-python>=4.8.0
-Pillow>=10.0.0
-numpy>=1.23.0
+opencv-python==4.8.1.78
+Pillow==10.0.1
+numpy==1.24.4
 
 # --- Progress bar ---
-tqdm>=4.65.0
+tqdm==4.66.1
+
+# --- Optional: faster model loading / tracing ---
+accelerate
+safetensors
