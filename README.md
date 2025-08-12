@@ -43,6 +43,10 @@ BiRefNet Video CLI
 
 **Как начать**
 
+1. скачать и запустить SETUP.bat (обязательно от имени администратора)
+2. Запустить код с помощью RUN.bat
+
+
 1. Клонируйте репозиторий:
 
 git clone [https://github.com/shaitansky/BiRefNET_for_video.git]
